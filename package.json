@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "name": "whatsapp-bulk-sender",
   "version": "1.0.0",
   "description": "WhatsApp Bulk Message Sender Application",
