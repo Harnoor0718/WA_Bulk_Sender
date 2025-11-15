@@ -8,7 +8,7 @@ import { useState } from 'react';
 
 interface EnhancedDashboardProps {
   contacts: Contact[];
-  onNavigate: (page: 'contacts' | 'composer' | 'reports') => void;
+  onNavigate: (page: 'contacts' | 'composer' | 'reports' | 'payment') => void;
   onLogout: () => void;
 }
 
@@ -90,24 +90,31 @@ export default function EnhancedDashboard({ contacts, onNavigate, onLogout }: En
             </button>
             <button
               onClick={() => onNavigate('contacts')}
-              className="w-full flex items-center gap-3 px-4 py-3 hover:bg-gray-100 rounded-lg transition"
+              className="w-full flex items-center gap-3 px-4 py-3 hover:bg-gray-100 rounded-lg transition text-left"
             >
               <Users className="w-5 h-5 text-gray-600" />
               <span className="text-gray-700">Contacts</span>
             </button>
             <button
               onClick={() => onNavigate('composer')}
-              className="w-full flex items-center gap-3 px-4 py-3 hover:bg-gray-100 rounded-lg transition"
+              className="w-full flex items-center gap-3 px-4 py-3 hover:bg-gray-100 rounded-lg transition text-left"
             >
               <Send className="w-5 h-5 text-gray-600" />
               <span className="text-gray-700">Send Message</span>
             </button>
             <button
               onClick={() => onNavigate('reports')}
-              className="w-full flex items-center gap-3 px-4 py-3 hover:bg-gray-100 rounded-lg transition"
+              className="w-full flex items-center gap-3 px-4 py-3 hover:bg-gray-100 rounded-lg transition text-left"
             >
               <BarChart3 className="w-5 h-5 text-gray-600" />
               <span className="text-gray-700">Reports</span>
+            </button>
+            <button
+              onClick={() => onNavigate('payment')}
+              className="w-full flex items-center gap-3 px-4 py-3 hover:bg-gray-100 rounded-lg transition text-left"
+            >
+              <DollarSign className="w-5 h-5 text-gray-600" />
+              <span className="text-gray-700">Payment & Billing</span>
             </button>
           </nav>
         </aside>

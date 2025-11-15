@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import Login from './pages/login';
+import Login from './pages/Login';
 import EnhancedDashboard from './pages/EnhancedDashboard';
 import ContactsManagement from './pages/ContactsManagement';
 import MessageComposer from './pages/MessageComposer';
 import CampaignReports from './pages/CampaignReports';
+import PaymentIntegration from './pages/PaymentIntegration';
 
 export interface Contact {
   id: string;
@@ -12,10 +13,8 @@ export interface Contact {
   verified: boolean;
 }
 
-export type { Contact }; 
-
 function App() {
-  const [currentPage, setCurrentPage] = useState<'login' | 'dashboard' | 'contacts' | 'composer' | 'reports'>('login');
+  const [currentPage, setCurrentPage] = useState<'login' | 'dashboard' | 'contacts' | 'composer' | 'reports' | 'payment'>('login');
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [contacts, setContacts] = useState<Contact[]>([]);
 
@@ -46,7 +45,7 @@ function App() {
     setContacts([]);
   };
 
-  const handleNavigate = (page: 'dashboard' | 'contacts' | 'composer' | 'reports') => {
+  const handleNavigate = (page: 'dashboard' | 'contacts' | 'composer' | 'reports' | 'payment') => {
     setCurrentPage(page);
   };
 
@@ -81,6 +80,11 @@ function App() {
           )}
           {currentPage === 'reports' && (
             <CampaignReports
+              onBack={() => setCurrentPage('dashboard')}
+            />
+          )}
+          {currentPage === 'payment' && (
+            <PaymentIntegration
               onBack={() => setCurrentPage('dashboard')}
             />
           )}
